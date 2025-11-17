@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목포 알리미</title>
+
+    <!-- 폰트 및 기존 스타일 동일 -->
+    <style>
+        @font-face {
+            font-family: 'ChangwonDangamRound';
+            src: url('./fonts/ChangwonDangamRound.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        body { font-family: 'ChangwonDangamRound', 'Noto Sans KR', sans-serif !important; background: linear-gradient(to bottom, #e0f7fa, #ffffff); color: #333; line-height: 1.7; }
+        .main-logo, .hero h1, section h2 { font-weight: 700; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 20px 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .main-logo { font-size: 34px; color: #00bcd4; letter-spacing: -1px; }
+        nav { background: #00bcd4; padding: 15px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        nav ul { display: flex; justify-content: center; list-style: none; }
+        nav ul li a { color: white; text-decoration: none; font-size: 18px; font-weight: 500; padding: 12px 30px; margin: 0 10px; border-radius: 50px; transition: all 0.3s; }
+        nav ul li a:hover { background: rgba(255,255,255,0.2); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        main { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .hero { text-align: center; padding: 100px 20px; background: url('./images/mokpo-bridge.jpg') center/cover no-repeat; border-radius: 20px; color: white; text-shadow: 2px 2px 12px rgba(0,0,0,0.9); margin-bottom: 60px; }
+        .hero h1 { font-size: 50px; margin-bottom: 20px; }
+        .hero p { font-size: 24px; }
+        section { background: white; padding: 40px; margin-bottom: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        section h2 { font-size: 32px; color: #00bcd4; margin-bottom: 20px; position: relative; padding-bottom: 10px; }
+        section h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 4px; background: #ff4081; border-radius: 2px; }
+        footer { background: #00bcd4; color: white; text-align: center; padding: 30px; margin-top: 50px; font-size: 14px; }
+
+        #attractions img { width: 100%; max-width: 800px; border-radius: 12px; margin: 20px auto; display: block; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .comment-section { margin-top: 40px; }
+        .comment-form textarea { width: 100%; padding: 15px; border: 2px solid #00bcd4; border-radius: 12px; font-size: 16px; resize: vertical; }
+        .comment-form button { margin-top: 10px; padding: 12px 30px; background: #00bcd4; color: white; border: none; border-radius: 50px; font-size: 16px; cursor: pointer; }
+        .comment-form button:hover { background: #0097a7; }
+        .comment-list { margin-top: 30px; }
+        .comment { background: #f8fdff; padding: 18px; border-radius: 12px; margin-bottom: 15px; border-left: 5px solid #00bcd4; position: relative; }
+        .comment-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; font-size: 14px; color: #555; }
+        .comment-actions button { background: none; border: none; cursor: pointer; font-size: 20px; margin: 0 6px; }
+        .like-count { color: #4caf50; margin-left: 4px; font-weight: bold; }
+        .dislike-count { color: #f44336; margin-left: 4px; font-weight: bold; }
+        .delete-btn { 
+            position: absolute; top: 10px; right: 10px; 
+            background: #ff4081; color: white; border: none; 
+            padding: 6px 12px; border-radius: 8px; font-size: 13px; cursor: pointer;
+        }
+        .delete-btn:hover { background: #e91e63; }
+    </style>
+</head>
+<body>
+
+    <!-- header, nav, hero 등 동일 -->
+
+    <header><div class="main-logo">📢목포 알리미</div></header>
+    <nav>
+        <ul>
+            <li><a href="#food">🍚먹거리</a></li>
+            <li><a href="#attractions">🌉명소</a></li>
+            <li><a href="#accommodations">🏢숙소</a></li>
+            <li><a href="#activities">🎸놀거리</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="hero">
+            <h1>바다 내음 가득한 도시, 목포</h1>
+            <p>신선한 해산물과 아름다운 항구, 낭만이 가득한 여행지</p>
+        </div>
+
+        <section id="attractions">
+            <h2>🌉명소</h2>
+            <p style="font-size: 40px;">목포 근대역사관 </p>
+            <p>100년 전, 아시아를 삼켰던 목포의 야심이 붉은 벽돌에 아직도 살아 숨 쉰다. 
+            한 번만 들어가면 목포를 평생 잊지 못하게 되는 곳.</p>
+            <img src="images/history_build.jpg" alt="목포 근대역사관">
+
+            <div class="comment-section">
+                <h3>방문 후기 남기기</h3>
+                <div class="comment-form">
+                    <textarea id="commentInput" rows="4" placeholder="이 곳에 다녀온 솔직한 후기를 남겨주세요!"></textarea>
+                    <button onclick="addComment()">⌨️댓글 달기</button>
+                </div>
+
+                <div class="comment-list" id="commentList"></div>
+            </div>
+        </section>
+
+        <!-- 나머지 섹션 생략 -->
+    </main>
+
+    <footer>© 2025 목포 알리미 — 바다 냄새 맡으러 얼른 오세요!</footer>
+
+    <!-- 모든 댓글에 삭제 버튼 보이게 + 클릭하면 바로 삭제 -->
+    <script>
+        const commentList = document.getElementById('commentList');
+        const commentInput = document.getElementById('commentInput');
+
+        function loadComments() {
+            const comments = JSON.parse(localStorage.getItem('mokpo-comments') || '[]');
+            commentList.innerHTML = '';
+            comments.forEach((c, i) => {
+                const div = document.createElement('div');
+                div.className = 'comment';
+                div.innerHTML = `
+                    <p><strong>익명${i + 1}</strong>: ${c.text.replace(/\n/g, '<br>')}</p>
+                    <button class="delete-btn" onclick="deleteComment(${i})">삭제</button>
+                    <div class="comment-meta">
+                        <span>${new Date(c.date).toLocaleString('ko-KR')}</span>
+                        <div class="comment-actions">
+                            <button onclick="vote(${i}, 'like')">
+                                👍좋아요 <span class="like-count">${c.likes}</span>
+                            </button>
+                            <button onclick="vote(${i}, 'dislike')">
+                                👎싫어요 <span class="dislike-count">${c.dislikes}</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                commentList.appendChild(div);
+            });
+        }
+
+        function addComment() {
+            const text = commentInput.value.trim();
+            if (!text) return alert('🗨️댓글을 입력해주세요!');
+            const comments = JSON.parse(localStorage.getItem('mokpo-comments') || '[]');
+            comments.push({
+                text: text,
+                likes: 0,
+                dislikes: 0,
+                date: new Date().toISOString()
+            });
+            localStorage.setItem('mokpo-comments', JSON.stringify(comments));
+            commentInput.value = '';
+            loadComments();
+        }
+
+        function vote(index, type) {
+            const comments = JSON.parse(localStorage.getItem('mokpo-comments') || '[]');
+            if (type === 'like') comments[index].likes++;
+            else comments[index].dislikes++;
+            localStorage.setItem('mokpo-comments', JSON.stringify(comments));
+            loadComments();
+        }
+
+        function deleteComment(index) {
+            if (confirm('🗑️정말 이 댓글을 삭제하시겠어요?')) {
+                const comments = JSON.parse(localStorage.getItem('mokpo-comments') || '[]');
+                comments.splice(index, 1);
+                localStorage.setItem('mokpo-comments', JSON.stringify(comments));
+                loadComments();
+            }
+        }
+
+        loadComments();
+    </script>
+</body>
+</html>
